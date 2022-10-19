@@ -1,0 +1,21 @@
+REMARK  1 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O2_2  and  C3_6 
+ROOT
+HETATM    1  O1  UNK   900       1.382   1.192   0.056  1.00  0.00    -0.316 OA
+HETATM    2  O3  UNK   900       2.890  -0.024  -1.162  1.00  0.00    -0.265 OA
+HETATM    3  C1  UNK   900       0.279  -0.585   1.174  1.00  0.00     0.031 C 
+HETATM    4  C2  UNK   900      -1.081  -0.931   0.508  1.00  0.00     0.022 C 
+HETATM    5  C3  UNK   900      -1.507   0.341  -0.253  1.00  0.00     0.060 C 
+HETATM    6  C4  UNK   900       0.411   0.931   1.078  1.00  0.00     0.139 C 
+HETATM    7  C5  UNK   900      -0.951   1.459   0.637  1.00  0.00     0.071 C 
+HETATM    8  C6  UNK   900       1.562  -1.092   0.549  1.00  0.00     0.118 C 
+HETATM    9  C7  UNK   900      -1.116  -2.218  -0.307  1.00  0.00     0.013 C 
+HETATM   10  C8  UNK   900      -3.015   0.463  -0.448  1.00  0.00     0.046 C 
+HETATM   11  C9  UNK   900       2.026   0.046  -0.302  1.00  0.00     0.259 C 
+ENDROOT
+BRANCH   5  12
+HETATM   12  O2  UNK   900      -0.880   0.418  -1.531  1.00  0.00    -0.390 OA
+HETATM   13  H14 UNK   900      -1.121   1.269  -1.935  1.00  0.00     0.210 HD
+ENDBRANCH   5  12
+TORSDOF 1

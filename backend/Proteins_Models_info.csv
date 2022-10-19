@@ -1,0 +1,74 @@
+﻿Gene,uniprot_id,Template,Oligomeric state,resolution,GMQE,Seq_identity,disall,chain,Experimetal methodoly,Description
+CCL22,O00626,2q8r.1.A,homo-dimer,1.8 A,0.47,32.31%,0.00%,A,X-ray,Structural and Functional Characterization of CC Chemokine CCL14
+LRG1,P02750,3zyi.1.A,monomer,2.6 A,0.61,24.67,0,A,X-ray,LEUCINE-RICH REPEAT-CONTAINING PROTEIN 4. NetrinG2 in complex with NGL2
+TBX6,O95947,6f59.1.C,homo-dimer,2.2 A,0.31,62.17,0,C,X-ray,Brachyury protein. Crystal structure of human Brachyury (T) G177D variant in complex with DNA
+COG8,Q96MW5,2d2s.1.A,monomer,2.8 A,0.2,14.42,0,A,X-ray,Exocyst complex component EXO84. Crystal Structure of the Exo84p C-terminal Domains
+FBLN5,Q9UBX5,6pog.1.B ,hetero-dimer,2.8 A,0.26,35,3,B,X-ray,Protein kinase C-binding protein NELL2. Crystal structure of the NELL2 EGF1-6-Robo3 FN1 complex
+AHSG,P02765,7auw.1.B,hetero-tetramer,2.8 A,0.4,28.35,0.5,B,X-ray,Fetuin-B. Inhibitory complex of human meprin beta with mouse fetuin-B
+HSPA4,P34932,2qxl.1.A ,homo-dimer,2.4 A,0.66,39.45,1,A,X-ray,"Heat shock protein homolog SSE1. Crystal Structure Analysis of Sse1, a yeast Hsp110"
+CCN2,P29279,5nb8.1.A,monomer,2.1 A,0.12,51.65,0,A,X-ray,Protein NOV homolog. Structure of vWC domain from CCN3
+VCAN,P13611,5ao6.2.A,monomer,3.4 A,0,36.96,3.3,A,X-ray,"C-TYPE MANNOSE RECEPTOR 2. Endo180 D1-4, trigonal form"
+KRT18,P05783,6jlb.1.C ,homo-tetramer,3.2 A,0.35,33.79,0.4,B,X-ray,Lamin A/C. Crystal structure of lamin A/C fragment and assembly mechanisms of intermediate filaments
+ADAM12,O43184,2erq.1.A,homo-dimer,2.5A,0.41,41.01,0.3,A,X-ray,Vascular apoptosis-inducing protein 1. Crystal structure of vascular apoptosis-inducing protein-1(tetragonal crystal form)
+PKHD1,P08F94,5l59.2.A,monomer,6.0 A,0,20.77,1,A,X-ray,"Plexin-A1. Plexin A1 full extracellular region, domains 1 to 10, to 6 angstrom, spacegroup P2(1)"
+STMN1,P16949,5jcb.1.E,hetero-hexamer,2.3 A,0.83,70.92,0,E,X-ray,Stathmin. Microtubule depolymerizing agent podophyllotoxin derivative YJTSF1
+ABCC4,O15439,6uy0.1.A ,monomer,3.2 A,0.68,37.19,0.2,A,EM,Multidrug resistance-associated protein 1. Cryo-EM structure of wild-type bovine multidrug resistance protein 1 (MRP1) under active turnover conditions
+AVP,P01185,2bn2.2.B ,homo-dimer,2.8 A,0.37,93.55,0,A,X-ray,NEUROPHYSIN II. CRYSTAL STRUCTURE OF BOVINE NEUROPHYSIN II COMPLEXED WITH THE VASOPRESSIN ANALOGUE PHE-TYR AMIDE
+TFE3,P19532,6g1l.1.A ,homo-dimer,2.4 A,0.1,82.88,0,A,X-ray,Microphthalmia-associated transcription factor. MITF/CLEARbox structure
+KRT19,P08727,6jlb.1.C ,homo-tetramer,3.2 A,0.33,31.92,0.6,B,X-ray,Lamin A/C. Crystal structure of lamin A/C fragment and assembly mechanisms of intermediate filaments
+WFDC2,Q14508,1udk.1.A,monomer,N/A,0.3,48.98,0,A,NMR,Nawaprin. Solution Structure of Nawaprin
+CD163,Q86VB7,5a2e.1.A,monomer,3.1 A,0.2,37.5,2.4,A,X-ray,T-CELL DIFFERENTIATION ANTIGEN CD6. Extracellular SRCR domains of human CD6
+KRT8,P05787,6jlb.1.C ,homo-tetramer,3.2 A,0.12,32.12,0.4,D,X-ray,"Lamin A/C. Crystal structure of lamin A/C fragment and assembly mechanisms of intermediate filaments	"
+IGFBP7,Q16270,3tjq.1.A,monomer,2.0 A,0.28,43.8,0,A,X-ray,Serine protease HTRA1. N-domain of HtrA1
+SEMA3A,Q14563,4gz8.1.A ,homo-dimer,3.3 A,0.77,96.72,0.3,A,X-ray,"Semaphorin-3A. Mouse Semaphorin 3A, domains Sema-PSI-IG"
+SFRP2,Q96HF1,5xgp.1.A,monomer,2.1 A,0.64,32.68,0.4,A,X-ray,Secreted Xwnt8 inhibitor sizzled. Structure of Sizzled from Xenopus laevis at 2.08 angstroms resolution
+CXCL9,Q07325,6ehz.1.A ,monomer,N/A,0.48,30.43,1.2,A,NMR,Stromal cell-derived factor . NMR solution structure of murine CXCL12 gamma isoform
+SLC22A2,O15244,4lds.1.B,homo-dimer,3.2 A,0.42,22.02,0.3,B,X-ray,Glucose transporter GlcP. The inward-facing structure of the glucose transporter from Staphylococcus epidermidis
+HOXA9,P31269,5zjq.1.A,hetero-dimer,2.4 A,0.12,61.25,0,A,X-ray,Homeobox protein abdominal-B. Structure of AbdB/Exd complex bound to a 'Red14' DNA sequence
+GOLM1,Q8NBJ4,3na7.1.A ,monomer,2.2 A,0.16,12.5,0,A,X-ray,HP0958. 2.2 Angstrom Structure of the HP0958 Protein from Helicobacter pylori CCUG 17874
+CFAP251,Q8TBY9,4ci8.2.A,monomer,2.6 A,0.27,15.15,1.2,A,X-ray,ECHINODERM MICROTUBULE-ASSOCIATED PROTEIN-LIKE 1. Crystal structure of the tandem atypical beta-propeller domain of EML1
+SLC22A6,Q4U2R8,6h7d.1.A ,monomer,2.4 A,0.4,17.28,0,A,X-ray,Sugar transport protein 10. Crystal Structure of A. thaliana Sugar Transport Protein 10 in complex with glucose in the outward occluded state
+CXCL16,Q9H2A7,7o7f.1.E,hetero-heptamer,N/A,0.09,21.54,0,E,EM,C-C motif chemokine 5. Structural basis of the activation of the CC chemokine receptor 5 by a chemokine agonist
+SLC12A3,P55017,6npl.1.B ,homo-dimer,N/A,0.75,54.43,0.5,A,EM,"Solute carrier family 12 (sodium/potassium/chloride transporter), member 2. Cryo-EM structure of NKCC1"
+FAAH,O00519,2wj1.1.A ,homo-dimer,1.8 A,0.94,85.12,0.2,A,X-ray,"FATTY-ACID AMIDE HYDROLASE 1. 3D-CRYSTAL STRUCTURE OF HUMANIZED-RAT FATTY ACID AMIDE HYDROLASE (FAAH). CONJUGATED WITH 7-PHENYL-1-(4-(PYRIDIN-2-YL)OXAZOL-2-YL)HEPTAN-1-ONE, AN ALPHA-KETOOXAZOLE"
+TRPM8,Q7Z2W7,6o77.1.A ,homo-tetramer,N/A,0.77,82.66,,A,EM,"Transient receptor potential cation channel subfamily M member 8. Structure of the TRPM8 cold receptor by single particle electron cryo-microscopy, calcium-bound state"
+SFRP4,Q6FHJ7,5xgp.1.A ,monomer,2.1 A,0.39,21.28,0.4,A,X-ray,Secreted Xwnt8 inhibitor sizzled. structure of Sizzled from Xenopus laevis at 2.08 angstroms resolution
+PLIN2,Q99541,1szi.1.A,monomer,2.8 A,0.34,37.45,0,A,X-ray,mannose-6-phosphate receptor binding protein 1. Crystal Structure of the C-terminus of TIP47
+KRT20,P35900,6jlb.1.C ,homo-tetramer,3.2 A,0.39,21.93,0,C,X-ray,Lamin A/C. Crystal structure of lamin A/C fragment and assembly mechanisms of intermediate filaments
+MT1A,P04731,4mt2.1.A,homo-dimer,2.0 A,0.82,85.25,3.8,A,X-ray,METALLOTHIONEIN ISOFORM II. COMPARISON OF THE NMR SOLUTION STRUCTURE AND THE X-RAY CRYSTAL STRUCTURE OF RAT METALLOTHIONEIN-2
+SFRP5,Q5T4F7,5xgp.1.A,monomer,2.1 A,0.59,30.83,0,A,X-ray,Secreted Xwnt8 inhibitor sizzled. Structure of Sizzled from Xenopus laevis at 2.08 angstroms resolution
+SLC22A8,Q8TCC7,4gby.1.A,monomer,2.8 A,0.45,20.64,1.9,A,X-ray,D-xylose-proton symporter. The structure of the MFS (major facilitator superfamily) proton:xylose symporter XylE bound to D-xylose
+SNCG,O76070,2n0a.1.G ,homo-10-mmer,N/A,0.52,63.46,2.2,A,NMR,Alpha-synuclein. Atomic-resolution structure of alpha-synuclein fibrils
+TFAP2B,Q92481,5y04.1.A ,hetero-dimer,2.8 A,0.03,18.42,0,A,X-ray,Vinculin. Crystal Structure of the complex between the vinculin D1 domain and alphaE-catenin
+SLC6A20, Q9NP91,6m18.1.C ,homo-tetramer,N/A,0.81,46.3,0,C,EM,Sodium-dependent neutral amino acid transporter B(0)AT1. ACE2-B0AT1 complex
+CALB2,P22676,2f33.1.A,monomer,N/A,0.78,59.22,0,A,NMR,Calbindin. NMR solution structure of Ca2+-loaded calbindin D28K
+SERPINF2,P08697,2r9y.1.A ,monomer,2.6 A,0.76,78.47,0.3,A,X-ray,Alpha-2-antiplasmin. Structure of antiplasmin
+PDGFD,Q9GZP0,3kq4.1.B,hetero-dimer,3.3 A,0.24,24.24,1.3,B,X-ray,Cubilin. Structure of Intrinsic Factor-Cobalamin bound to its receptor Cubilin
+SLC9A3,P48764,7dsw.1.A,homo-dimer,N/A,0.42,52.74,0.3,A,EM,Sodium/hydrogen exchanger 1. Structure of a human NHE1-CHP1 complex under pH 7.5
+HPX,P02790,1qjs.1.A ,monomer,2.9 A,0.9,80.79,0.3,A,X-ray,HEMOPEXIN. mammalian blood serum haemopexin glycosylated-native protein and in complex with its ligand haem
+TFF2,Q03403,1psp.1.A ,monomer,2.5A,0.69,75.96,0,A,X-ray,PANCREATIC SPASMOLYTIC POLYPEPTIDE. PANCREATIC SPASMOLYTIC POLYPEPTIDE: FIRST THREE-DIMENSIONAL STRUCTURE OF A MEMBER OF THE MAMMALIAN TREFOIL FAMILY OF PEPTIDES
+ETFDH,Q16134,2gmj.1.A,monomer,2.6 A,0.97,95.38,0.2,A,X-ray,Electron transfer flavoprotein-ubiquinone oxidoreductase. Structure of Porcine Electron Transfer Flavoprotein-Ubiquinone Oxidoreductase
+EN2,P19622,2hoa.1.A ,monomer,N/A,0.09,53.23,0,A,NMR,"ANTENNAPEDIA PROTEIN. STRUCTURE DETERMINATION OF THE ANTP(C39->S) HOMEODOMAIN FROM NUCLEAR MAGNETIC RESONANCE DATA IN SOLUTION USING A NOVEL STRATEGY FOR THE STRUCTURE CALCULATION WITH THE PROGRAMS DIANA, CALIBA, HABAS AND GLOMSA"
+MYCL,P12524,6g6k.1.A ,hetero-dimer,1.3 A,0.13,44.19,0,A,X-ray,Myc proto-oncogene protein. The crystal structures of Human MYC:MAX bHLHZip complex
+HYAL2,Q12891,2pe4.1.A ,monomer,2.0 A,0.74,41.79,0.3,A,X-ray,"Hyaluronidase-1. Structure of Human Hyaluronidase 1, a Hyaluronan Hydrolyzing Enzyme Involved in Tumor Growth and Angiogenesis"
+CAVIN1,Q6NZI2,4qkv.1.A ,homo-trimer,3.0 A,0.14,100,0,A,X-ray,Polymerase I and transcript release factor. Crystal structure of the mouse cavin1 HR1 domain
+TSPAN1,O60635,6k4j.1.A ,monomer,2.7 A,0.64,27.36,0.58,A,X-ray,CD9 antigen. Crystal Structure of the the CD9
+ATP6V1B1,P15313,6vq6.1.E,hetero-34-mer,N/A,0.83,88.25,0,E,EM,"V-type proton ATPase subunit B, brain isoform. Mammalian V-ATPase from rat brain - composite model of rotational state 1 bound to ADP and SidK (built from focused refinement models)"
+COL13A1,Q5TAT6,7a23.1.H,hetero-45-mer,N/A,0.02,11.43,0,H,EM,B16.6. Plant mitochondrial respiratory complex I
+SYNPO,Q8N3V7,1rtk.1.A,monomer,2.3 A,0,11.76,2.2,A,X-ray,Complement factor B. Crystal Structure Analysis of the Bb segment of Factor B complexed with 4-guanidinobenzoic acid
+UPK1B,O75841,6k4j.1.A,monomer,2.7 A,0.54,19.72,1.8,A,X-ray,CD9 antigen. Crystal Structure of the the CD9
+ZNF143,P52747,5v3j.2.C ,monomer,2.1 A,0.2,37.26,0,C,X-ray,Zinc finger protein 568. MouseZFP568-ZnF1-10 in complex with DNA
+CST1,P01037,1rn7.1.A ,monomer,2.5A,0.7,57.98,1,A,X-ray, Cystatin D. Structure of human cystatin D
+SCGB3A2,Q96PL1,1utr.1.A ,homo-dimer,N/A,0.36,19.51,5.5,A,NMR,UTEROGLOBIN. UTEROGLOBIN-PCB COMPLEX (REDUCED FORM)
+CLDN8,P56748,6akf.2.A ,hetero-dimer,3.9 A ,0.65,45.65,0,A,X-ray,Claudin-3. Crystal structure of mouse claudin-3 P134A mutant in complex with C-terminal fragment of Clostridium perfringens enterotoxin
+MLLT6,P55198,5dah.2.A ,hetero-dimer,2.6 A,0.12,91.85,0,A,X-ray,Protein AF-10. Crystal structure of PZP domain of human AF10 protein fused with Histone H3 peptide
+MMP23B,O75900,1su3.1.A ,monomer,2.2 A,0.46,28.52,0.8,A,x-ray,Interstitial collagenase. X-ray structure of human proMMP-1: New insights into collagenase action
+SLC5A12,Q1EHB4,5nva.1.A ,monomer,2.3 A,0.49,22.2,0.3,A,X-ray,Putative sodium:solute symporter. Substrate-bound outward-open state of a Na+-coupled sialic acid symporter reveals a novel Na+-site
+TOX4,O94842,2co9.1.A ,monomer,N/A,0.13,84.09,2.5,A,NMR,thymus high mobility group box protein TOX. Solution structure of the HMG_box domain of thymus high mobility group box protein TOX from mouse
+RDX,P35241,2i1k.1.A ,monomer,3.0 A,0.88,59.23,0.7,A,X-ray,Moesin. Moesin from Spodoptera frugiperda reveals the coiled-coil domain at 3.0 angstrom resolution
+ACTC1,P68032,3ci5.1.A ,hetero-dimer,1.7 A,0.87,91.71,0,A,X-ray,Major actin. Complex of Phosphorylated Dictyostelium Discoideum Actin with Gelsolin
+CNN3,Q15417,1wyn.1.A,monomer,N/A,0.27,68.42,0,A,NMR,Calponin-2. Solution structure of the CH domain of human calponin-2
+PLS1,Q14651,1pxy.1.A,monomer,2.4 A,0.62,42.19,0.2,A,X-ray,fimbrin-like protein.  structure of the actin-crosslinking core of Arabidopsis fimbrin
+BICD1,Q96G01,6f1t.1.h,hetero-45-mer,N/A,0.11,17.62,0.4,h,EM,"BICD family-like cargo adapter 1,BICD family-like cargo adapter 1,BICD family-like cargo adapter 1. Cryo-EM structure of two dynein tail domains bound to dynactin and BICDR1. "
+CTIF,O43310,2i2o.1.A,homo-dimer,1.9 A,0.21,28.16,0,A,X-ray,eIF4G-like protein. Crystal Structure of an eIF4G-like Protein from Danio rerio
+P52747,,,,,,,,C,,

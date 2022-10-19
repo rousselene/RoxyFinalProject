@@ -1,0 +1,39 @@
+REMARK  5 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: N2_4  and  C5_9 
+REMARK       I    between atoms: N2_4  and  C8_12 
+REMARK    2  A    between atoms: C8_12  and  C9_13 
+REMARK    3  A    between atoms: C9_13  and  C10_14 
+REMARK    4  A    between atoms: C10_14  and  C11_15 
+REMARK    5  A    between atoms: C11_15  and  C12_16 
+ROOT
+HETATM    1  O1  UNK   900      -4.632   1.746  -0.059  1.00  0.00    -0.291 OA
+HETATM    2  N1  UNK   900      -1.962  -0.448  -0.249  1.00  0.00    -0.355 N 
+HETATM    3  C1  UNK   900      -3.394  -0.304  -0.504  1.00  0.00     0.160 A 
+HETATM    4  C2  UNK   900      -4.014  -1.345   0.407  1.00  0.00     0.035 C 
+HETATM    5  C3  UNK   900      -1.639  -1.753   0.308  1.00  0.00     0.125 C 
+HETATM    6  C4  UNK   900      -2.989  -2.478   0.333  1.00  0.00     0.022 C 
+HETATM    7  C5  UNK   900      -1.371   0.761   0.097  1.00  0.00     0.110 A 
+HETATM    8  C6  UNK   900      -3.569   1.149  -0.123  1.00  0.00     0.175 A 
+HETATM    9  C7  UNK   900      -2.252   1.774   0.164  1.00  0.00     0.100 A 
+ENDROOT
+BRANCH   7  10
+HETATM   10  N2  UNK   900      -0.054   0.951   0.393  1.00  0.00    -0.313 N 
+HETATM   11  C8  UNK   900       0.978   0.220  -0.184  1.00  0.00     0.223 C 
+HETATM   12  O2  UNK   900       0.841  -0.672  -1.017  1.00  0.00    -0.273 OA
+HETATM   13  H9  UNK   900       0.192   1.807   0.883  1.00  0.00     0.170 HD
+BRANCH  11  14
+HETATM   14  C9  UNK   900       2.331   0.640   0.368  1.00  0.00     0.103 C 
+BRANCH  14  15
+HETATM   15  C10 UNK   900       3.507  -0.131  -0.231  1.00  0.00     0.009 C 
+BRANCH  15  16
+HETATM   16  C11 UNK   900       4.853   0.321   0.342  1.00  0.00     0.000 C 
+BRANCH  16  17
+HETATM   17  C12 UNK   900       6.012  -0.447  -0.295  1.00  0.00    -0.005 C 
+HETATM   18  C13 UNK   900       7.354   0.018   0.250  1.00  0.00     0.005 C 
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  11  14
+ENDBRANCH   7  10
+TORSDOF 5

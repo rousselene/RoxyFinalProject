@@ -1,0 +1,35 @@
+REMARK  3 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O1_1  and  C5_8 
+REMARK    2  A    between atoms: O2_2  and  C6_9 
+REMARK    3  A    between atoms: O3_3  and  C11_14 
+ROOT
+HETATM    1  C1  UNK   900      -0.447  -1.215   0.051  1.00  0.00    -0.028 C 
+HETATM    2  C2  UNK   900      -1.774  -0.569   0.506  1.00  0.00    -0.008 C 
+HETATM    3  C3  UNK   900      -0.224   0.078  -0.878  1.00  0.00     0.031 C 
+HETATM    4  C4  UNK   900       0.061   1.120   0.138  1.00  0.00     0.033 C 
+HETATM    5  C5  UNK   900      -1.112   0.775   1.118  1.00  0.00     0.132 C 
+HETATM    6  C6  UNK   900      -1.522   0.260  -1.691  1.00  0.00     0.124 C 
+HETATM    7  C7  UNK   900      -2.581  -0.259  -0.760  1.00  0.00     0.044 C 
+HETATM    8  C8  UNK   900       1.633   0.908   0.366  1.00  0.00    -0.015 C 
+HETATM    9  C9  UNK   900       0.225  -2.180  -0.893  1.00  0.00     0.013 C 
+HETATM   10  C10 UNK   900       0.139  -1.741   1.426  1.00  0.00     0.016 C 
+HETATM   11  C11 UNK   900       2.324  -0.572   0.090  1.00  0.00     0.126 C 
+HETATM   12  C12 UNK   900      -2.696  -1.261   1.508  1.00  0.00     0.019 C 
+HETATM   13  C13 UNK   900       1.765  -1.703  -0.936  1.00  0.00     0.033 C 
+HETATM   14  C14 UNK   900       2.327   1.924  -0.604  1.00  0.00     0.018 C 
+HETATM   15  C15 UNK   900       2.003   1.385   1.787  1.00  0.00     0.018 C 
+ENDROOT
+BRANCH   5  16
+HETATM   16  O1  UNK   900      -2.063   1.837   1.127  1.00  0.00    -0.394 OA
+HETATM   17  H24 UNK   900      -1.607   2.631   1.454  1.00  0.00     0.210 HD
+ENDBRANCH   5  16
+BRANCH   6  18
+HETATM   18  O2  UNK   900      -1.759   1.608  -2.053  1.00  0.00    -0.395 OA
+HETATM   19  H25 UNK   900      -2.618   1.642  -2.508  1.00  0.00     0.210 HD
+ENDBRANCH   6  18
+BRANCH  11  20
+HETATM   20  O3  UNK   900       3.702  -0.395  -0.303  1.00  0.00    -0.395 OA
+HETATM   21  H26 UNK   900       4.131  -1.267  -0.282  1.00  0.00     0.210 HD
+ENDBRANCH  11  20
+TORSDOF 3
