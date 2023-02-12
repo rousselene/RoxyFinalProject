@@ -24,34 +24,90 @@ const Interactive = (props) => {
   const [tableData, setTableData] = React.useState([]);
   const [affinityMin, setAffinityMin] = React.useState(0);
   const [affinityMax, setaffinityMax] = React.useState(-100);
-  const [filter, setFilter] = React.useState(20);
+  const [filter, setFilter] = React.useState(10);
   const { naturalProduct, setNaturalProduct } = React.useContext(Context);
   const { databaseType, setDatabaseType } = React.useContext(Context);
   const { protein, setProtein } = React.useContext(Context);
+  const { gene, setGene } = React.useContext(Context);
+
+  const [currentPdbId, setCurrentPdbId] = React.useState("");
+  const [currentGene, setCurrentGene] = React.useState("");
+
   const { interactiveTableData, setInteractiveTableData } =
     React.useContext(Context);
-  console.log(protein);
+
   function pubchemHandler() {
     if (PubChemLigand === "none") {
     }
   }
-  function dynamicSort(property) {
-    var sortOrder = 1;
-    if (property[0] === "-") {
-      sortOrder = -1;
-      property = property.substr(1);
-    }
-    return function (a, b) {
-      /* next line works with strings and numbers,
-       * and you may want to customize it to your needs
-       */
-      var result =
-        a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
-      return result * sortOrder;
-    };
+
+  function setProteinInformation() {
+    console.log('click', currentGene, currentPdbId)
+
+    if (currentPdbId != "" && currentGene == "") {
+      
+      axios
+      .get(
+        `http://localhost:3001/specificProtein?pdbId=${pdbId}`
+      )
+      .then((res) => {
+        var responseObj = res.data[0];
+        
+        setPdbId(responseObj.pdb_id);
+        setGene(responseObj["Gene name"] || responseObj["Gene"]);
+        setUniProtId(responseObj.uniprot_id);
+        setSequenceLength(responseObj["Sequence length"]);
+        setExpMethodology(
+          responseObj["Experimetal methodoly"] ||
+            responseObj["Experimental methodology"]
+        );
+        setProteinDescription(responseObj.Description);
+        axios
+          .get(
+            `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
+          )
+          .then((res) => {
+            console.log(res.data)
+            setInteractiveTableData(res.data);
+            navigate("/datasets");
+          });
+      });
   }
-  console.log(databaseType);
-  function zincHandler() {
+  if (currentGene != "" && currentPdbId == "") {
+    axios
+    .get(
+      `http://localhost:3001/specificProtein?gene=${gene}`
+    )
+    .then((res) => {
+      var responseObj = res.data[0];
+      console.log(res)
+      setPdbId(responseObj.pdb_id);
+      setGene(responseObj["Gene name"] || responseObj["Gene"]);
+      setUniProtId(responseObj.uniprot_id);
+      setSequenceLength(responseObj["Sequence length"]);
+      setExpMethodology(
+        responseObj["Experimetal methodoly"] ||
+          responseObj["Experimental methodology"]
+      );
+      setProteinDescription(responseObj.Description);
+      axios
+        .get(
+          `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
+        )
+        .then((res) => {
+          console.log(res.data)
+          setInteractiveTableData(res.data);
+          navigate("/datasets");
+        });
+    });
+  }
+    }
+
+    
+    
+    
+
+ /* function zincHandler() {
     axios
       .get(
         `http://localhost:3001/table?protein=${protein}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
@@ -64,7 +120,7 @@ const Interactive = (props) => {
         setInteractiveTableData(res.data);
         navigate("/datasets");
       });
-  }
+  } */
   /*useEffect(() => {
         // When container is ready
         if (true) {
@@ -84,14 +140,26 @@ const Interactive = (props) => {
           return () => curWindow.close();
         }
       }, [tableData]); */
-  useEffect(() => {
-    axios.get("http://localhost:3001/proteins").then((res) => {
-      setProteinData(res.data);
-      setProtein(res.data[0].pdb_id);
-      setDataLoaded(true);
-    });
-    console.log("component reload");
-  }, []);
+ // useEffect(() => {
+ //   axios.get("http://localhost:3001/proteins").then((res) => {
+//    setProteinData(res.data);
+//      setProtein(res.data[0].pdb_id);
+//      setDataLoaded(true);
+//    });
+//    console.log("component reload");
+ // }, []);
+
+ function setCurrentGenes(e) {
+    console.log(currentGene, gene, e.target.value)
+    setCurrentGene(e.target.value)
+    setGene(e.target.value)
+ }
+ function setCurrentPdbIds(e) {
+  console.log(currentPdbId, pdbId, e.target.value)
+  setCurrentPdbId(e.target.value)
+  setPdbId(e.target.value)
+}
+
 
   return (
     <>
@@ -99,7 +167,50 @@ const Interactive = (props) => {
         <div class="grid col">
           <div class="m-2" id="proteinSelection">
             <form>
-              <h2>Select a Database</h2>
+              <h1 className="fs-5">
+                Select a <u>RECEPTOR</u> Protein
+              </h1>
+              <br></br>
+              <div
+                className="m-2 row justify-content-center"
+                id="nameSelection"
+              >
+                <div className="mt-n4 col d-flex justify-content-end">
+                  <div>
+                    <span style={{ display: "inline-block" }}>
+                      <label for="min" style={{ display: "block" }}>
+                        Gene Name
+                      </label>
+                      <input
+                        size="15"
+                        id="commonName"
+                        onChange={(e) => setCurrentGenes(e)}
+                        type="text"
+                      ></input>
+                    </span>
+                  </div>
+                </div>
+                or
+                <div class="mt-n4 col d-flex justify-content-start">
+                  <div>
+                    <span style={{ display: "inline-block" }}>
+                      <label for="pdbId" style={{ display: "block" }}>
+                        PDB ID
+                      </label>
+
+                      <input
+                        size="15"
+                        id="pdbId"
+                        onChange={(e) => setCurrentPdbIds(e)}
+                        type="text"
+                      ></input>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <br></br>
+              <h3 className="fs-5">Select a <u>LIGAND</u> Database</h3>
+              <br></br>
               <label class="radio-inline mx-2">
                 <input
                   checked
@@ -122,60 +233,9 @@ const Interactive = (props) => {
                 Zinc
               </label>
             </form>
-            <label htmlFor="select">Select Protein: </label>
-            <select
-              class="my-4"
-              onChange={(e) =>
-                setProtein(e.target.value) &
-                setSequenceLength(
-                  e.target.options[e.target.selectedIndex].getAttribute(
-                    "data-sequenceLength"
-                  )
-                ) &
-                setProteinDescription(
-                  e.target.options[e.target.selectedIndex].getAttribute(
-                    "data-description"
-                  )
-                ) &
-                setUniProtId(
-                  e.target.options[e.target.selectedIndex].getAttribute(
-                    "data-uniprot_id"
-                  )
-                ) &
-                setExpMethodology(
-                  e.target.options[e.target.selectedIndex].getAttribute(
-                    "data-expmeth"
-                  )
-                ) &
-                setPdbId(
-                  e.target.options[e.target.selectedIndex].getAttribute(
-                    "data-pdbid"
-                  )
-                )
-              }
-            >
-              {proteinData
-                .sort(dynamicSort("pdb_id" || "Gene"))
-                .map((option, index) => (
-                  <option
-                    key={index}
-                    data-description={option.Description || "--"}
-                    data-sequenceLength={option["Sequence length"] || "--"}
-                    data-uniprot_id={option.uniprot_id || "--"}
-                    data-expmeth={
-                      option["Experimental methodology"] ||
-                      option["Experimetal methodoly"] ||
-                      "--"
-                    }
-                    data-pdbid={option.pdb_id || "--"}
-                    value={option.pdb_id || option.Gene}
-                  >
-                    {option.pdb_id || option.Gene}
-                  </option>
-                ))}
-            </select>
             <br></br>
             <label htmlFor="radio"></label>
+            <br></br>
             <label htmlFor="input">Enter Compound:</label>{" "}
             <input
               onChange={(e) => setNaturalProduct(e.target.value)}
@@ -184,21 +244,39 @@ const Interactive = (props) => {
               id="ligand"
             />
           </div>
-          
+          <br></br>
+          <p className="text-black">or</p>
+          <div class="m-2" id="filter">
+            <label>Show Top: </label>{" "}
+            <span style={{ display: "inline-block" }}>
+              
+              <input
+                onChange={(e) => setFilter(e.target.value)}
+                type="number"
+                min="0"
+                max="100"
+                step="1"
+                placeholder="10"
+                defaultValue="10"
+                id="top"
+                size="4"
+              ></input>
+            </span>
+          </div>
+          <br></br>
           <div
             className="m-2 row justify-content-center"
             id="affinitySelection"
           >
-           <p style={{color: "black"}}>Binding Affinity:</p>
+            <p style={{ color: "black" }}>Binding Affinity:</p>
             <div className="mt-n4 col d-flex justify-content-end">
               <div>
                 <span style={{ display: "inline-block" }}>
-                  
                   <label for="min" style={{ display: "block" }}>
                     Min
                   </label>
                   <input
-                  size="4"
+                    size="4"
                     id="min"
                     onChange={(e) => setAffinityMin(-e.target.value)}
                     type="number"
@@ -216,9 +294,9 @@ const Interactive = (props) => {
                   <label for="max" style={{ display: "block" }}>
                     Max
                   </label>
-                  
+
                   <input
-                  size="4"
+                    size="4"
                     id="max"
                     onChange={(e) => setaffinityMax(-e.target.value)}
                     type="number"
@@ -229,33 +307,22 @@ const Interactive = (props) => {
                 </span>
               </div>
             </div>
-            
           </div>
-          <div class="m-2" id="filter">
-            <label>Show Docking Results:</label>{" "}
-            <span style={{ display: "inline-block" }}>
-            <label for="top" style={{ display: "block" }}>Top</label>
-            <input
-              onChange={(e) => setFilter(e.target.value)}
-              type="number"
-              min="0"
-              max="100"
-              step="1"
-              placeholder="0"
-              id="top"
-              size="4"
-            ></input>
-            </span>
-          </div>
+          
           <div className="p-3">
             <div>
-            <button style={{width: 128}}
-              onClick={() =>
-                setOpen(true) & zincHandler() & console.log(tableData)
-              }
-            >
-              Search
-            </button>
+              <button
+                style={{ width: 128 }}
+                onClick={(e) =>
+                  setOpen(true) &
+                  e.preventDefault() &
+                  //zincHandler(e) &
+                  setProteinInformation() &
+                  console.log(tableData)
+                }
+              >
+                Search
+              </button>
             </div>
           </div>
         </div>

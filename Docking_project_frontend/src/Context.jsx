@@ -10,14 +10,15 @@ export const ContextProvider = ({ children }) => {
       Affinity: -8.3,
     },
   ]);
-  const [naturalProduct, setNaturalProduct] = useState("139585407.pdb");
-  const [databaseType, setDatabaseType] = useState("Pubchem");
-  const [protein, setProtein] = useState("3V83");
-  const [proteinDescription, setProteinDescription] = useState("--");
-  const [uniProtId, setUniProtId] = useState("--");
-  const [expMethodology, setExpMethodology] = useState("--");
-  const [pdbId, setPdbId] = useState("--");
-  const [sequenceLength, setSequenceLength] = useState("--");
+  const [naturalProduct, setNaturalProduct] = useState(null);
+  const [databaseType, setDatabaseType] = useState(null);
+  const [protein, setProtein] = useState(null);
+  const [proteinDescription, setProteinDescription] = useState(null);
+  const [uniProtId, setUniProtId] = useState(null);
+  const [expMethodology, setExpMethodology] = useState(null);
+  const [pdbId, setPdbId] = useState(null);
+  const [sequenceLength, setSequenceLength] = useState(null);
+  const [gene, setGene] = useState(null);
   return (
     <Context.Provider
       value={{
@@ -39,6 +40,8 @@ export const ContextProvider = ({ children }) => {
         setPdbId,
         sequenceLength,
         setSequenceLength,
+        gene,
+        setGene
       }}
     >
       {children}

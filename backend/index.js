@@ -120,6 +120,70 @@ app.get("/proteins", (req, res) => {
       });
   });
 });
+app.get("/specificProtein", (req, res) => {
+  console.log("called proteins endpoint");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  gene = req.query.gene
+  pdbId = req.query.pdbId
+
+  searchObj = { "Gene name": `${gene}`, "Gene": `${gene}`, "pdb_id": `${pdbId}`,  }
+
+  console.log(searchObj)
+  MongoClient.connect(uri, async function (err, db) {
+    if (err) throw err;
+    var dbo = db.db("root");
+    function pm(searchObj) {
+      let searchObjPM = searchObj
+      delete searchObjPM['Gene name']
+      if (pdbId == undefined) {
+        delete searchObjPM['pdb_id']
+      }
+      if (gene == undefined) {
+        delete searchObjPM['Gene']
+      }
+      if (Object.keys(searchObjPM).length === 0) {
+        res.send({}) 
+      }
+      else {
+      console.log('PM search', searchObjPM)
+      dbo
+        .collection("protein models")
+        .find(searchObjPM)
+        .toArray(async function (err, result) {
+          if (err) throw err;
+          
+          res.send(result);
+        });
+      }
+    }
+    let searchObjP = searchObj
+      delete searchObjP['Gene']
+      if (pdbId == undefined) {
+        delete searchObjP['pdb_id']
+      }
+      if (gene == undefined) {
+        delete searchObjP['Gene name']
+      }
+      console.log(searchObjP)
+    dbo
+      .collection("proteins")
+      .find(searchObjP)
+      .toArray(async function (err, result) {
+        if (err) throw err;
+        console.log(result)
+        if (result.length < 1) {
+          pm(searchObj);
+        }
+        else {
+          res.send(result)
+        }
+        
+      });
+  });
+});
 app.get("/ligands", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
