@@ -13,6 +13,7 @@ const Interactive = (props) => {
   const [open, setOpen] = useState();
   const [proteinData, setProteinData] = React.useState([]);
   const [dataLoaded, setDataLoaded] = React.useState(true);
+  const [placeholder, setPlaceholder] = React.useState("eg. 139585407");
 
   const { proteinDescription, setProteinDescription } =
     React.useContext(Context);
@@ -42,72 +43,63 @@ const Interactive = (props) => {
   }
 
   function setProteinInformation() {
-    console.log('click', currentGene, currentPdbId)
+    console.log("click", currentGene, currentPdbId);
 
     if (currentPdbId != "" && currentGene == "") {
-      
       axios
-      .get(
-        `http://localhost:3001/specificProtein?pdbId=${pdbId}`
-      )
-      .then((res) => {
-        var responseObj = res.data[0];
-        
-        setPdbId(responseObj.pdb_id);
-        setGene(responseObj["Gene name"] || responseObj["Gene"]);
-        setUniProtId(responseObj.uniprot_id);
-        setSequenceLength(responseObj["Sequence length"]);
-        setExpMethodology(
-          responseObj["Experimetal methodoly"] ||
-            responseObj["Experimental methodology"]
-        );
-        setProteinDescription(responseObj.Description);
-        axios
-          .get(
-            `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
-          )
-          .then((res) => {
-            console.log(res.data)
-            setInteractiveTableData(res.data);
-            navigate("/datasets");
-          });
-      });
-  }
-  if (currentGene != "" && currentPdbId == "") {
-    axios
-    .get(
-      `http://localhost:3001/specificProtein?gene=${gene}`
-    )
-    .then((res) => {
-      var responseObj = res.data[0];
-      console.log(res)
-      setPdbId(responseObj.pdb_id);
-      setGene(responseObj["Gene name"] || responseObj["Gene"]);
-      setUniProtId(responseObj.uniprot_id);
-      setSequenceLength(responseObj["Sequence length"]);
-      setExpMethodology(
-        responseObj["Experimetal methodoly"] ||
-          responseObj["Experimental methodology"]
-      );
-      setProteinDescription(responseObj.Description);
-      axios
-        .get(
-          `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
-        )
+        .get(`http://localhost:3001/specificProtein?pdbId=${pdbId}`)
         .then((res) => {
-          console.log(res.data)
-          setInteractiveTableData(res.data);
-          navigate("/datasets");
+          var responseObj = res.data[0];
+
+          setPdbId(responseObj.pdb_id);
+          setGene(responseObj["Gene name"] || responseObj["Gene"]);
+          setUniProtId(responseObj.uniprot_id);
+          setSequenceLength(responseObj["Sequence length"]);
+          setExpMethodology(
+            responseObj["Experimetal methodoly"] ||
+              responseObj["Experimental methodology"]
+          );
+          setProteinDescription(responseObj.Description);
+          axios
+            .get(
+              `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
+            )
+            .then((res) => {
+              console.log(res.data);
+              setInteractiveTableData(res.data);
+              navigate("/datasets");
+            });
         });
-    });
-  }
     }
+    if (currentGene != "" && currentPdbId == "") {
+      axios
+        .get(`http://localhost:3001/specificProtein?gene=${gene}`)
+        .then((res) => {
+          var responseObj = res.data[0];
+          console.log(res);
+          setPdbId(responseObj.pdb_id);
+          setGene(responseObj["Gene name"] || responseObj["Gene"]);
+          setUniProtId(responseObj.uniprot_id);
+          setSequenceLength(responseObj["Sequence length"]);
+          setExpMethodology(
+            responseObj["Experimetal methodoly"] ||
+              responseObj["Experimental methodology"]
+          );
+          setProteinDescription(responseObj.Description);
+          axios
+            .get(
+              `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
+            )
+            .then((res) => {
+              console.log(res.data);
+              setInteractiveTableData(res.data);
+              navigate("/datasets");
+            });
+        });
+    }
+  }
 
-    
-    
-    
-
- /* function zincHandler() {
+  /* function zincHandler() {
     axios
       .get(
         `http://localhost:3001/table?protein=${protein}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
@@ -140,26 +132,25 @@ const Interactive = (props) => {
           return () => curWindow.close();
         }
       }, [tableData]); */
- // useEffect(() => {
- //   axios.get("http://localhost:3001/proteins").then((res) => {
-//    setProteinData(res.data);
-//      setProtein(res.data[0].pdb_id);
-//      setDataLoaded(true);
-//    });
-//    console.log("component reload");
- // }, []);
+  // useEffect(() => {
+  //   axios.get("http://localhost:3001/proteins").then((res) => {
+  //    setProteinData(res.data);
+  //      setProtein(res.data[0].pdb_id);
+  //      setDataLoaded(true);
+  //    });
+  //    console.log("component reload");
+  // }, []);
 
- function setCurrentGenes(e) {
-    console.log(currentGene, gene, e.target.value)
-    setCurrentGene(e.target.value)
-    setGene(e.target.value)
- }
- function setCurrentPdbIds(e) {
-  console.log(currentPdbId, pdbId, e.target.value)
-  setCurrentPdbId(e.target.value)
-  setPdbId(e.target.value)
-}
-
+  function setCurrentGenes(e) {
+    console.log(currentGene, gene, e.target.value);
+    setCurrentGene(e.target.value);
+    setGene(e.target.value);
+  }
+  function setCurrentPdbIds(e) {
+    console.log(currentPdbId, pdbId, e.target.value);
+    setCurrentPdbId(e.target.value);
+    setPdbId(e.target.value);
+  }
 
   return (
     <>
@@ -186,6 +177,7 @@ const Interactive = (props) => {
                         id="commonName"
                         onChange={(e) => setCurrentGenes(e)}
                         type="text"
+                        placeholder="eg. TP53"
                       ></input>
                     </span>
                   </div>
@@ -203,18 +195,23 @@ const Interactive = (props) => {
                         id="pdbId"
                         onChange={(e) => setCurrentPdbIds(e)}
                         type="text"
+                        placeholder="eg. 2BIP"
                       ></input>
                     </span>
                   </div>
                 </div>
               </div>
               <br></br>
-              <h3 className="fs-5">Select a <u>LIGAND</u> Database</h3>
+              <h3 className="fs-5">
+                Select a <u>LIGAND</u> Database
+              </h3>
               <br></br>
               <label class="radio-inline mx-2">
                 <input
-                  checked
-                  onClick={(e) => setDatabaseType(e.target.id)}
+                  onClick={(e) =>
+                    setDatabaseType(e.target.id) &
+                    setPlaceholder("eg. 139585407")
+                  }
                   type="radio"
                   id="Pubchem"
                   name="database"
@@ -224,13 +221,16 @@ const Interactive = (props) => {
               </label>
               <label class="radio-inline mx-2">
                 <input
-                  onClick={(e) => setDatabaseType(e.target.id)}
+                  onClick={(e) =>
+                    setDatabaseType(e.target.id) &
+                    setPlaceholder("eg. ZINC000000122602")
+                  }
                   type="radio"
                   id="Zinc"
                   name="database"
                   className="mx-2"
                 />
-                Zinc
+                ZINC
               </label>
             </form>
             <br></br>
@@ -242,6 +242,8 @@ const Interactive = (props) => {
               type="search"
               name="zincligand"
               id="ligand"
+              placeholder={placeholder}
+              size="22"
             />
           </div>
           <br></br>
@@ -249,7 +251,6 @@ const Interactive = (props) => {
           <div class="m-2" id="filter">
             <label>Show Top: </label>{" "}
             <span style={{ display: "inline-block" }}>
-              
               <input
                 onChange={(e) => setFilter(e.target.value)}
                 type="number"
@@ -308,11 +309,15 @@ const Interactive = (props) => {
               </div>
             </div>
           </div>
-          
+
           <div className="p-3">
             <div>
               <button
-                style={{ width: 128 }}
+                style={{
+                  width: 128,
+                  backgroundColor: "#728FCE",
+                  color: "white",
+                }}
                 onClick={(e) =>
                   setOpen(true) &
                   e.preventDefault() &

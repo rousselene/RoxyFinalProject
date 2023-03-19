@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3Dmol iFrame Deployment</title>
-  </head>
-  <body>
-    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
-<script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>  
+</head>
+
+<body>
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>
     <script>
-    const search = new URLSearchParams(document.location.search) 
-    const proteinHideFlag = parseInt(search.get('hide_protein')) 
-     ;
-      let div = document.createElement("div");
-      div.style = "height: 700px; width: 100%; position: relative;";
-      div.className = "viewer_3Dmoljs";
-      div.dataset.backgroundcolor = "0xffffff";
-      div.dataset.href = 'result.pdb'
-      div.dataset.ui = "true";
-      div.dataset.options = "multimodel:true;onemol:true";
-      div.dataset.surface1= proteinHideFlag ? 'opacity:0': 'opacity:.95;color:blue'
-      div.dataset.style1='cartoon'
-      
-      div.dataset.style1='stick;sphere:radius~0.45'
-      
-      
-      
-      //div.dataset.style2='stick:sphere:radius=0.1'
-      document.body.appendChild(div);
+        const search = new URLSearchParams(document.location.search)
+        const proteinHideFlag = parseInt(search.get('hide_protein'))
+            ;
+        let div = document.createElement("div");
+        div.style = "height: 700px; width: 100%; position: relative;";
+        div.className = "viewer_3Dmoljs";
+        div.dataset.backgroundcolor = "0xffffff";
+        div.dataset.href = 'result.pdb'
+        div.dataset.ui = "true";
+        div.dataset.options = "multimodel:true;onemol:true";
+        div.dataset.surface1 = proteinHideFlag ? 'opacity:0' : 'opacity:.95;color:blue'
+
+
+        div.dataset.style = 'stick'
+
+
+
+
+        //div.dataset.style2='stick:sphere:radius=0.1'
+        document.body.appendChild(div);
     </script>
-  </body>
+</body>
+
 </html>

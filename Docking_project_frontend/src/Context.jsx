@@ -11,7 +11,7 @@ export const ContextProvider = ({ children }) => {
     },
   ]);
   const [naturalProduct, setNaturalProduct] = useState(null);
-  const [databaseType, setDatabaseType] = useState(null);
+  const [databaseType, setDatabaseType] = useState("Pubchem");
   const [protein, setProtein] = useState(null);
   const [proteinDescription, setProteinDescription] = useState(null);
   const [uniProtId, setUniProtId] = useState(null);
@@ -41,7 +41,7 @@ export const ContextProvider = ({ children }) => {
         sequenceLength,
         setSequenceLength,
         gene,
-        setGene
+        setGene,
       }}
     >
       {children}

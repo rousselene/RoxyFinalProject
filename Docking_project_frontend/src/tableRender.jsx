@@ -1,11 +1,8 @@
-
 import { Context } from "./Context";
 import { useContext, useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import { Tab } from "bootstrap";
 import NewWindow from "react-new-window";
-
-
 
 const BuildVis = (props) => {
   return (
@@ -20,16 +17,15 @@ const BuildVis = (props) => {
   );
 };
 const TableRender = (props) => {
+  const { naturalProduct, setNaturalProduct } = useContext(Context);
+  const { pdbId, setPdbId } = useContext(Context);
 
-  const {naturalProduct, setNaturalProduct} = useContext(Context)
-  const {pdbId, setPdbId} = useContext(Context);
-  
-  function visualizeComplex(e){
-    console.log("display", e.target.value, pdbId, naturalProduct)
-    setPdbId(e.target.value.split("_")[0])
-    setNaturalProduct(e.target.value.split("_")[1])
-    }
-  
+  function visualizeComplex(e) {
+    console.log("display", e.target.value, pdbId, naturalProduct);
+    setPdbId(e.target.value.split("_")[0]);
+    setNaturalProduct(e.target.value.split("_")[1]);
+  }
+
   return (
     <div>
       <Table striped bordered hover>
@@ -43,7 +39,6 @@ const TableRender = (props) => {
             <th>Visualization</th>
           </tr>
           {props.interactiveTableData.map((dataPoint, index) => (
-            
             <tr>
               <td>{dataPoint.Protein}</td>
               <td>{dataPoint.Ligand}</td>
@@ -56,7 +51,8 @@ const TableRender = (props) => {
                     href={
                       "http://localhost:3001/download?filePath=" +
                       `/public/data/Complex/3V83/` +
-                      dataPoint.Complex
+                      dataPoint.Complex +
+                      ".pdb"
                     }
                   >
                     {dataPoint.Complex}{" "}
@@ -69,7 +65,9 @@ const TableRender = (props) => {
                   id={dataPoint.Complex}
                   name="visualize"
                   value={dataPoint.Complex}
-                  onChange={(e) => {visualizeComplex(e)}}
+                  onChange={(e) => {
+                    visualizeComplex(e);
+                  }}
                 ></input>
               </td>
             </tr>
