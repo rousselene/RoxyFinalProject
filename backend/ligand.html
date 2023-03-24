@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3Dmol iFrame Deployment</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
 </head>
 
 <body>
     <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
     <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>
     <script>
+        
         const search = new URLSearchParams(document.location.search)
         const proteinHideFlag = parseInt(search.get('hide_protein'))
             ;
@@ -32,6 +35,27 @@
 
         //div.dataset.style2='stick:sphere:radius=0.1'
         document.body.appendChild(div);
+    var btn = document.createElement('button')
+    btn.innerText = 'Download'
+    btn.id = 'download'
+    document.body.appendChild(btn)
+        
+
+    </script>
+    
+    <script>
+
+        var btn = document.getElementById('download')
+        btn.addEventListener('click',function() {
+            var node = document.querySelector(".viewer_3Dmoljs")
+            domtoimage.toBlob(node)
+                .then(function (blob) {
+                    window.saveAs(blob, 'view.png');
+                });
+        }) 
+
+        
+       
     </script>
 </body>
 

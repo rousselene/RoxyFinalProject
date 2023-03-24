@@ -49,7 +49,7 @@ const DataSets = (props) => {
         <div className="grid col">
           <h3 className="fs-5 text-start">User Submitted</h3>
           <iframe
-            height="700"
+            height="800"
             width="100%"
             src={`http://localhost:3001/complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`}
             title="Ligand Viewer"
