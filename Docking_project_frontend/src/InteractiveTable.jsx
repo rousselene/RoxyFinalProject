@@ -67,7 +67,7 @@ const Interactive = (props) => {
             .then((res) => {
               console.log(res.data);
               setInteractiveTableData(res.data);
-              navigate("/datasets");
+              navigate("/results");
             });
         });
     }
@@ -93,7 +93,7 @@ const Interactive = (props) => {
             .then((res) => {
               console.log(res.data);
               setInteractiveTableData(res.data);
-              navigate("/datasets");
+              navigate("/Results");
             });
         });
     }
@@ -249,7 +249,7 @@ const Interactive = (props) => {
           <br></br>
           <p className="text-black">or</p>
           <div class="m-2" id="filter">
-            <label>Show Top: </label>{" "}
+            <label>Show Top (up to 100): </label>{" "}
             <span style={{ display: "inline-block" }}>
               <input
                 onChange={(e) => setFilter(e.target.value)}

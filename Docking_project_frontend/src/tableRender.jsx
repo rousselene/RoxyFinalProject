@@ -28,7 +28,7 @@ const TableRender = (props) => {
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table className="resultsTable" striped bordered hover>
         <tbody>
           <tr>
             <th>Protein</th>
