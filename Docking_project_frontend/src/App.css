@@ -30,7 +30,7 @@ button {
 }
 
 table {
-  color:#000;
+  color: #000;
   font-size: 0.8rem;
   margin-top: 1rem;
 }
@@ -231,10 +231,6 @@ select {
 .card-column .side-card:nth-child(1),
 .card-column .side-card:nth-child(2) {
   margin-bottom: 1rem;
-}
-
-.card-column .side-card:nth-child(3) {
-  background: #222;
 }
 
 .stat-card {

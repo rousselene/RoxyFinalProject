@@ -11,6 +11,7 @@
     "3dmol": "^1.8.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "dom-to-image": "^2.6.0",
     "molecule-3d-for-react": "^0.4.5",
     "react": "^18.0.0",
     "react-bootstrap": "^2.5.0",
