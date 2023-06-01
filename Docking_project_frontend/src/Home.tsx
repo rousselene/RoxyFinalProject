@@ -11,7 +11,8 @@ const Home = (props) => {
             <div className="card main-card">
               <div className="image-row">
                 <div className="title">
-                  myDockDB: Molecular Docking of Multiple Myeloma Proteins
+                  myDockDB: Multiple Myeloma Proteins and Natural Compounds
+                  Docking WEB-resource
                 </div>
               </div>
               <div className="heading">
@@ -50,8 +51,7 @@ const Home = (props) => {
                   human protein expression. Here we present M3BioDock, a
                   database implemented to provide to general audience a way to
                   check the binding affinity of a multiple myeloma protein to a
-                  natural compound as well performing dynamic simulation on the
-                  complex through high performance computing.
+                  natural compound.
                 </p>
               </div>
               <div className="image-box">

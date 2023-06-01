@@ -11,6 +11,7 @@ import InteractiveTable from "./InteractiveTable";
 import TableRender from "./tableRender";
 import DataSets from "./Datasets";
 import Results from "./Results";
+import { env } from "./env.js";
 /*
 To generate tables from excel data, we must save the excel file as `.csv` format
 then use an npm package like `csv-parser` to convert the csv data to json data
@@ -71,10 +72,16 @@ const App = () => {
         <nav className="navbar">
           <br></br>
           <div className="navbar-lower">
-            <Link className="btn primary rounded-lg outline" to="/">
+            <Link
+              className="btn primary rounded-lg outline"
+              to="https://bioinfo.usu.edu/myDockDB/"
+            >
               Home
             </Link>
-            <Link className="btn primary rounded-lg outline" to="datasets">
+            <Link
+              className="btn primary rounded-lg outline"
+              to="https://bioinfo.usu.edu/myDockDB/datasets"
+            >
               Datasets
             </Link>
             <Link className="btn primary rounded-lg outline" to="help">
@@ -85,7 +92,7 @@ const App = () => {
             <Link
               className="btn primary rounded-lg outline"
               style={{ width: "150px" }}
-              to="interactive"
+              to="https://bioinfo.usu.edu/myDockDB/interactive"
             >
               Search Menu
             </Link>
@@ -93,15 +100,18 @@ const App = () => {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/interactive" element={<InteractiveTable />} />
-          <Route path="/table" element={<TableRender />} />
+          <Route path={`${env.BASE_URL}/`} element={<Home />} />
+          <Route path={`${env.BASE_URL}/results`} element={<Results />} />
+          <Route path={`${env.BASE_URL}/search`} element={<Search />} />
+          <Route
+            path={`${env.BASE_URL}/interactive`}
+            element={<InteractiveTable />}
+          />
+          <Route path={`${env.BASE_URL}/table`} element={<TableRender />} />
           <Route path="tools" element={<p>Tools</p>} />
           {/* <Route path='features' element={<GeneList data={}/>} /> */}
-          <Route path="/datasets" element={<DataSets />} />
-          <Route path="help" element={<p>Help</p>} />
+          <Route path={`${env.BASE_URL}/datasets`} element={<DataSets />} />
+          <Route path={`${env.BASE_URL}/help`} element={<p>Help</p>} />
           <Route path="data/:id" element={<p>data</p>} />
 
           <Route path="add-gene" element={<AddGene setData={setData} />} />
