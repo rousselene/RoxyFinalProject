@@ -9,7 +9,7 @@ import Home from "./Home.tsx";
 import Search from "./Search.jsx";
 import InteractiveTable from "./InteractiveTable";
 import TableRender from "./tableRender";
-import DataSets from "./DataSets";
+import DataSets from "./Datasets";
 import Results from "./Results";
 import { env } from "./env.js";
 /*
