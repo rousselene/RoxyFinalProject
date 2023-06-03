@@ -72,15 +72,12 @@ const App = () => {
         <nav className="navbar">
           <br></br>
           <div className="navbar-lower">
-            <Link
-              className="btn primary rounded-lg outline"
-              to="https://bioinfo.usu.edu/myDockDB/"
-            >
+            <Link className="btn primary rounded-lg outline" to="/myDockDB/">
               Home
             </Link>
             <Link
               className="btn primary rounded-lg outline"
-              to="https://bioinfo.usu.edu/myDockDB/datasets"
+              to="/myDockDB/datasets"
             >
               Datasets
             </Link>
@@ -92,7 +89,7 @@ const App = () => {
             <Link
               className="btn primary rounded-lg outline"
               style={{ width: "150px" }}
-              to="https://bioinfo.usu.edu/myDockDB/interactive"
+              to="/myDockDB/interactive"
             >
               Search Menu
             </Link>
