@@ -77,7 +77,7 @@ const App = () => {
             </Link>
             <Link
               className="btn primary rounded-lg outline"
-              to="/myDockDB/datasets"
+              to="myDockDB/datasets"
             >
               Datasets
             </Link>
@@ -89,7 +89,7 @@ const App = () => {
             <Link
               className="btn primary rounded-lg outline"
               style={{ width: "150px" }}
-              to="/myDockDB/interactive"
+              to="myDockDB/interactive"
             >
               Search Menu
             </Link>
