@@ -7,6 +7,10 @@ import { createPortal } from "react-dom";
 import { Tab } from "bootstrap";
 import { Context } from "./Context";
 import { useNavigate } from "react-router-dom";
+import { env } from "./env.js";
+
+console.log(env.BACKEND);
+
 const Interactive = (props) => {
   const navigate = useNavigate();
 
@@ -46,56 +50,52 @@ const Interactive = (props) => {
     console.log("click", currentGene, currentPdbId);
 
     if (currentPdbId != "" && currentGene == "") {
-      axios
-        .get(`http://localhost:3001/specificProtein?pdbId=${pdbId}`)
-        .then((res) => {
-          var responseObj = res.data[0];
+      axios.get(`${env.BACKEND}specificProtein?pdbId=${pdbId}`).then((res) => {
+        var responseObj = res.data[0];
 
-          setPdbId(responseObj.pdb_id);
-          setGene(responseObj["Gene name"] || responseObj["Gene"]);
-          setUniProtId(responseObj.uniprot_id);
-          setSequenceLength(responseObj["Sequence length"]);
-          setExpMethodology(
-            responseObj["Experimetal methodoly"] ||
-              responseObj["Experimental methodology"]
-          );
-          setProteinDescription(responseObj.Description);
-          axios
-            .get(
-              `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
-            )
-            .then((res) => {
-              console.log(res.data);
-              setInteractiveTableData(res.data);
-              navigate("/datasets");
-            });
-        });
+        setPdbId(responseObj.pdb_id);
+        setGene(responseObj["Gene name"] || responseObj["Gene"]);
+        setUniProtId(responseObj.uniprot_id);
+        setSequenceLength(responseObj["Sequence length"]);
+        setExpMethodology(
+          responseObj["Experimetal methodoly"] ||
+            responseObj["Experimental methodology"]
+        );
+        setProteinDescription(responseObj.Description);
+        axios
+          .get(
+            `${env.BACKEND}table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
+          )
+          .then((res) => {
+            console.log(res.data);
+            setInteractiveTableData(res.data);
+            navigate("https://bioinfo.usu.edu/myDockDB/results");
+          });
+      });
     }
     if (currentGene != "" && currentPdbId == "") {
-      axios
-        .get(`http://localhost:3001/specificProtein?gene=${gene}`)
-        .then((res) => {
-          var responseObj = res.data[0];
-          console.log(res);
-          setPdbId(responseObj.pdb_id);
-          setGene(responseObj["Gene name"] || responseObj["Gene"]);
-          setUniProtId(responseObj.uniprot_id);
-          setSequenceLength(responseObj["Sequence length"]);
-          setExpMethodology(
-            responseObj["Experimetal methodoly"] ||
-              responseObj["Experimental methodology"]
-          );
-          setProteinDescription(responseObj.Description);
-          axios
-            .get(
-              `http://localhost:3001/table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
-            )
-            .then((res) => {
-              console.log(res.data);
-              setInteractiveTableData(res.data);
-              navigate("/datasets");
-            });
-        });
+      axios.get(`${env.BACKEND}specificProtein?gene=${gene}`).then((res) => {
+        var responseObj = res.data[0];
+        console.log(res);
+        setPdbId(responseObj.pdb_id);
+        setGene(responseObj["Gene name"] || responseObj["Gene"]);
+        setUniProtId(responseObj.uniprot_id);
+        setSequenceLength(responseObj["Sequence length"]);
+        setExpMethodology(
+          responseObj["Experimetal methodoly"] ||
+            responseObj["Experimental methodology"]
+        );
+        setProteinDescription(responseObj.Description);
+        axios
+          .get(
+            `${env.BACKEND}table?protein=${responseObj.pdb_id}&limit=${filter}&min_affinity=${affinityMin}&max_affinity=${affinityMax}`
+          )
+          .then((res) => {
+            console.log(res.data);
+            setInteractiveTableData(res.data);
+            navigate("https://bioinfo.usu.edu/myDockDB/Results");
+          });
+      });
     }
   }
 
@@ -154,9 +154,9 @@ const Interactive = (props) => {
 
   return (
     <>
-      <div class="grid row">
-        <div class="grid col">
-          <div class="m-2" id="proteinSelection">
+      <div className="grid row">
+        <div className="grid col">
+          <div className="m-2" id="proteinSelection">
             <form>
               <h1 className="fs-5">
                 Select a <u>RECEPTOR</u> Protein
@@ -169,7 +169,7 @@ const Interactive = (props) => {
                 <div className="mt-n4 col d-flex justify-content-end">
                   <div>
                     <span style={{ display: "inline-block" }}>
-                      <label for="min" style={{ display: "block" }}>
+                      <label htmlFor="min" style={{ display: "block" }}>
                         Gene Name
                       </label>
                       <input
@@ -183,10 +183,10 @@ const Interactive = (props) => {
                   </div>
                 </div>
                 or
-                <div class="mt-n4 col d-flex justify-content-start">
+                <div className="mt-n4 col d-flex justify-content-start">
                   <div>
                     <span style={{ display: "inline-block" }}>
-                      <label for="pdbId" style={{ display: "block" }}>
+                      <label htmlFor="pdbId" style={{ display: "block" }}>
                         PDB ID
                       </label>
 
@@ -206,7 +206,7 @@ const Interactive = (props) => {
                 Select a <u>LIGAND</u> Database
               </h3>
               <br></br>
-              <label class="radio-inline mx-2">
+              <label className="radio-inline mx-2">
                 <input
                   onClick={(e) =>
                     setDatabaseType(e.target.id) &
@@ -219,7 +219,7 @@ const Interactive = (props) => {
                 />
                 Pubchem
               </label>
-              <label class="radio-inline mx-2">
+              <label className="radio-inline mx-2">
                 <input
                   onClick={(e) =>
                     setDatabaseType(e.target.id) &
@@ -248,8 +248,8 @@ const Interactive = (props) => {
           </div>
           <br></br>
           <p className="text-black">or</p>
-          <div class="m-2" id="filter">
-            <label>Show Top: </label>{" "}
+          <div className="m-2" id="filter">
+            <label>Show Top (up to 100): </label>{" "}
             <span style={{ display: "inline-block" }}>
               <input
                 onChange={(e) => setFilter(e.target.value)}
@@ -273,7 +273,7 @@ const Interactive = (props) => {
             <div className="mt-n4 col d-flex justify-content-end">
               <div>
                 <span style={{ display: "inline-block" }}>
-                  <label for="min" style={{ display: "block" }}>
+                  <label htmlFor="min" style={{ display: "block" }}>
                     Min
                   </label>
                   <input
@@ -289,10 +289,10 @@ const Interactive = (props) => {
               </div>
             </div>
 
-            <div class="mt-n4 col d-flex justify-content-start">
+            <div className="mt-n4 col d-flex justify-content-start">
               <div>
                 <span style={{ display: "inline-block" }}>
-                  <label for="max" style={{ display: "block" }}>
+                  <label htmlFor="max" style={{ display: "block" }}>
                     Max
                   </label>
 

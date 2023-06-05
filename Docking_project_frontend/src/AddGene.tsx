@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-const AddGene = props => {
-    return(
-        <>
-            <p>Add Gene</p>
-        </>
-    )
-}
-export default AddGene
+const AddGene = (props) => {
+  return (
+    <>
+      <p>Add Gene</p>
+    </>
+  );
+};
+export default AddGene;
