@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import "./App.css";
-import GeneList from "./ModelList";
+import "App.css";
+import GeneList from "ModelList";
 
-import AddGene from "./AddGene.tsx";
-import AddModel from "./AddModel.tsx";
-import Home from "./Home.tsx";
-import Search from "./Search.jsx";
-import InteractiveTable from "./InteractiveTable";
-import TableRender from "./tableRender";
-import DataSets from "./DataSets";
-import Results from "./Results";
-import { env } from "./env.js";
+import AddGene from "AddGene.tsx";
+import AddModel from "AddModel.tsx";
+import Home from "Home.tsx";
+import Search from "Search.jsx";
+import InteractiveTable from "InteractiveTable";
+import TableRender from "tableRender";
+import DataSets from "DataSets";
+import Results from "Results";
+import { env } from "env.js";
 /*
 To generate tables from excel data, we must save the excel file as `.csv` format
 then use an npm package like `csv-parser` to convert the csv data to json data
