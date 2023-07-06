@@ -69,7 +69,7 @@ const Interactive = (props) => {
           .then((res) => {
             console.log(res.data);
             setInteractiveTableData(res.data);
-            navigate("/Results");
+            navigate("/myDockDB/Results");
           });
       });
     }
@@ -93,7 +93,7 @@ const Interactive = (props) => {
           .then((res) => {
             console.log(res.data);
             setInteractiveTableData(res.data);
-            navigate("/Results");
+            navigate("/myDockDB/Results");
           });
       });
     }
