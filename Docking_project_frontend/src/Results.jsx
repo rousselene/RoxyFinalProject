@@ -49,7 +49,7 @@ const Results = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3001/number_of_models?complex=${naturalProduct}&protein=${pdbId}`
+        `https://bioinfo.usu.edu/mydockdbbackend/number_of_models?complex=${naturalProduct}&protein=${pdbId}`
       )
       .then((res) => {
         setModelMax(res.data.length_of_file - 1);
@@ -76,7 +76,7 @@ const Results = (props) => {
           <iframe
             height="800"
             width="100%"
-            src={`http://localhost:3001/complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`}
+            src={`https://bioinfo.usu.edu/mydockdbbackend/complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`}
             title="Ligand Viewer"
           ></iframe>
           <div className="grid row">

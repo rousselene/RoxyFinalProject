@@ -49,7 +49,7 @@ const TableRender = (props) => {
                   <a
                     target="_blank"
                     href={
-                      "http://localhost:3001/download?filePath=" +
+                      "https://bioinfo.usu.edu/mydockdbbackend/download?filePath=" +
                       `/public/data/Complex/3V83/` +
                       dataPoint.Complex +
                       ".pdb"

@@ -69,7 +69,7 @@ const Interactive = (props) => {
           .then((res) => {
             console.log(res.data);
             setInteractiveTableData(res.data);
-            navigate("https://bioinfo.usu.edu/myDockDB/results");
+            navigate("https://bioinfo.usu.edu/mydockdbbackend/results");
           });
       });
     }
@@ -93,7 +93,7 @@ const Interactive = (props) => {
           .then((res) => {
             console.log(res.data);
             setInteractiveTableData(res.data);
-            navigate("https://bioinfo.usu.edu/myDockDB/Results");
+            navigate("https://bioinfo.usu.edu/mydockdbbackend/results");
           });
       });
     }
