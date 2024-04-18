@@ -452,7 +452,7 @@ const Interactive = (props) => {
               </button>
 
             </div>
-            <div className="pt-2"><button
+            {/*<div className="pt-2"><button
               style={{
                 width: 172,
                 backgroundColor: "#4682B4",
@@ -467,7 +467,7 @@ const Interactive = (props) => {
               }
             >
               Clear Previous Search
-            </button></div>
+            </button></div> */}
           </div>
         </div>
       </div>
