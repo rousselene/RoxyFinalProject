@@ -8,6 +8,7 @@ export default defineConfig({
   hmr: {
     host: "bioinfo.usu.edu",
     protocol: "wss",
-    clientPort: 443,
+    clientPort: 443
   },
 });
+

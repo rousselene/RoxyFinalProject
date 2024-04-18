@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import { Tab } from "bootstrap";
 import NewWindow from "react-new-window";
-
+import { env } from "./env.js";
 const BuildVis = (props) => {
   return (
     <div
@@ -39,7 +39,7 @@ const TableRender = (props) => {
             <th>Visualization</th>
           </tr>
           {props.interactiveTableData.map((dataPoint, index) => (
-            <tr>
+            <tr key={index}>
               <td>{dataPoint.Protein}</td>
               <td>{dataPoint.Ligand}</td>
               <td>{dataPoint.Complex}</td>
@@ -49,8 +49,8 @@ const TableRender = (props) => {
                   <a
                     target="_blank"
                     href={
-                      "https://bioinfo.usu.edu/mydockdbbackend/download?filePath=" +
-                      `/public/data/Complex/3V83/` +
+                      `${env.BACKEND}download?filePath=` +
+                      `/public/data/Complex/${dataPoint.Protein}/` +
                       dataPoint.Complex +
                       ".pdb"
                     }
@@ -74,9 +74,9 @@ const TableRender = (props) => {
           ))}
         </tbody>
       </Table>
-      <div>
+      {/*<div>
         <BuildVis />
-      </div>
+                </div>*/}
     </div>
   );
 };

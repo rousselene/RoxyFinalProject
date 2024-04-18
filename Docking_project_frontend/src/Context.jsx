@@ -2,23 +2,16 @@ import React, { useState } from "react";
 
 export const Context = React.createContext();
 export const ContextProvider = ({ children }) => {
-  const [interactiveTableData, setInteractiveTableData] = useState([
-    {
-      _id: "631026215067a17e2ddda9c6",
-      protein: "data/proteins/2W8N.pdb",
-      complex: "data/ligand/139585574.pdbqt",
-      Affinity: -8.3,
-    },
-  ]);
-  const [naturalProduct, setNaturalProduct] = useState(null);
-  const [databaseType, setDatabaseType] = useState("Pubchem");
-  const [protein, setProtein] = useState(null);
-  const [proteinDescription, setProteinDescription] = useState(null);
-  const [uniProtId, setUniProtId] = useState(null);
-  const [expMethodology, setExpMethodology] = useState(null);
-  const [pdbId, setPdbId] = useState(null);
-  const [sequenceLength, setSequenceLength] = useState(null);
-  const [gene, setGene] = useState(null);
+  const [interactiveTableData, setInteractiveTableData] = useState(JSON.parse(localStorage.getItem('resultsTable') || "[]"));
+  const [naturalProduct, setNaturalProduct] = useState(localStorage.getItem('naturalProduct'));
+  const [databaseType, setDatabaseType] = useState(localStorage.getItem('db_type'));
+  const [protein, setProtein] = useState(localStorage.getItem('pdbId'));
+  const [proteinDescription, setProteinDescription] = useState(localStorage.getItem('proteinDescription'));
+  const [uniProtId, setUniProtId] = useState(localStorage.getItem('uniProtId'));
+  const [expMethodology, setExpMethodology] = useState(localStorage.getItem('experimentalMethodology'));
+  const [pdbId, setPdbId] = useState(localStorage.getItem('pdbId'));
+  const [sequenceLength, setSequenceLength] = useState(localStorage.getItem('sequenceLength'));
+  const [gene, setGene] = useState(localStorage.getItem('gene'));
   return (
     <Context.Provider
       value={{

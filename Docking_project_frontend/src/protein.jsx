@@ -17,7 +17,8 @@ const Protein = (props) => {
           <tr>
             <td>
               <a
-                href={`https://www.uniprot.org/uniprotkb?query=${props.geneName}`}
+                href={`https://gtexportal.org/home/gene/${props.geneName}`}
+                target={'_blank'}
               >
                 {props.geneName}
               </a>
@@ -25,12 +26,13 @@ const Protein = (props) => {
             <td>
               <a
                 href={`https://www.uniprot.org/uniprotkb/${props.uniprotId}/entry`}
+                target={'_blank'}
               >
                 {props.uniprotId}
               </a>
             </td>
             <td>
-              <a href={`https://www.rcsb.org/structure/${props.pdbId}`}>
+              <a href={`https://www.rcsb.org/structure/${props.pdbId}`} target={'_blank'}>
                 {props.pdbId}
               </a>
             </td>

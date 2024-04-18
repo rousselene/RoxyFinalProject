@@ -24,3 +24,6 @@ code {
 #filter {
   color: brown;
 }
+.scroller {
+  scrollbar-color: red green;
+}

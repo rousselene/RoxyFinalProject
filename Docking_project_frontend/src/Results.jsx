@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import TableRender from "./tableRender";
 import axios from "axios";
 import Protein from "./protein.jsx";
+import { env } from "./env.js";
 const Results = (props) => {
   const { interactiveTableData, setInteractiveTableData } = useContext(Context);
   const { zincLigand, setZincLigand } = useContext(Context);
@@ -49,7 +50,7 @@ const Results = (props) => {
   useEffect(() => {
     axios
       .get(
-        `https://bioinfo.usu.edu/mydockdbbackend/number_of_models?complex=${naturalProduct}&protein=${pdbId}`
+        `${env.BACKEND}number_of_models?complex=${naturalProduct}&protein=${pdbId}`
       )
       .then((res) => {
         setModelMax(res.data.length_of_file - 1);
@@ -58,7 +59,7 @@ const Results = (props) => {
     console.log("component reload", interactiveTableData);
   }, []);
   return (
-    <div className="container" style={{ color: "black" }}>
+    <div className="grid row card main-card text-center mt-3" style={{ color: "black" }}>
       <div style={{ marginBottom: "60px" }}>
         <Protein
           geneName={gene}
@@ -73,12 +74,6 @@ const Results = (props) => {
       <div className="grid row">
         <div className="grid col">
           <h3 className="fs-5 text-start">User Submitted</h3>
-          <iframe
-            height="800"
-            width="100%"
-            src={`https://bioinfo.usu.edu/mydockdbbackend/complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`}
-            title="Ligand Viewer"
-          ></iframe>
           <div className="grid row">
             <div className="col">
               <label style={{ color: "black" }} htmlFor="model">
@@ -91,6 +86,7 @@ const Results = (props) => {
                 type="number"
                 name="model"
                 id="model"
+                size="3"
                 min={1}
                 max={modelMax}
               />
@@ -110,18 +106,27 @@ const Results = (props) => {
               />
             </div>
           </div>
+          <iframe
+            height="800"
+            width="100%"
+            src={`${env.BACKEND}complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`}
+            title="Ligand Viewer"
+          ></iframe>
+          
         </div>
         <div className="grid col">
           <h3 className="fs-5">Select Another Ligand or Complex</h3>
           <div>
-            <button
+          <button style={{backgroundColor: "#4682B4", color: 'white'}}
               id="csvTableDownload"
               onClick={(e) => {
                 download_csv(export_table_to_csv(), "table.csv");
               }}
             >
-              Download Results
+              Download Table
             </button>
+            <button style={{backgroundColor: "#4682B4", color: 'white'}}><a style={{color: 'white'}} href={`${env.BACKEND}download?filePath=/public/data/Complex/${pdbId}/${pdbId}_${naturalProduct}.pdb`}>Download Search Complex</a></button>
+              
             <TableRender interactiveTableData={interactiveTableData} />
           </div>
         </div>
