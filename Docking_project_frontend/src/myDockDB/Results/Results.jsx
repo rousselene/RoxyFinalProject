@@ -1,10 +1,10 @@
 import React from "react";
-import { Context } from "./Context";
+import { Context } from "../Context.jsx";
 import { useContext, useState, useEffect } from "react";
-import TableRender from "./tableRender";
+import TableRender from "../tableRender.jsx";
 import axios from "axios";
-import Protein from "./protein.jsx";
-import { env } from "./env.js";
+import Protein from "../protein.jsx";
+import { env } from "../env.js";
 const Results = (props) => {
   const { interactiveTableData, setInteractiveTableData } = useContext(Context);
   const { zincLigand, setZincLigand } = useContext(Context);
@@ -15,7 +15,7 @@ const Results = (props) => {
   const { expMethodology, setExpMethodology } = React.useContext(Context);
   const { pdbId, setPdbId } = React.useContext(Context);
   const { sequenceLength, setSequenceLength } = React.useContext(Context);
-
+  const {imageNotFound, setImageNotFound} = React.useContext(Context);
   const { gene, setGene } = useContext(Context);
   const [modelMax, setModelMax] = useState(10);
   const [model, setModel] = useState(1);
@@ -57,6 +57,7 @@ const Results = (props) => {
         console.log(res.data);
       });
     console.log("component reload", interactiveTableData);
+    axios.get(`${env.BACKEND}complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`).then((res) => {console.log(res, 'iframe response'); if (res.status != '200') {console.log('iframe not found...'); setImageNotFound('<h1 style="text-align: center;">Image Not Found</h1>')}}).catch(e => {setImageNotFound('<h1 style="text-align: center;">Image Not Found</h1>')})
   }, []);
   return (
     <div className="grid row card main-card text-center mt-3" style={{ color: "black" }}>
@@ -110,6 +111,7 @@ const Results = (props) => {
             height="800"
             width="100%"
             src={`${env.BACKEND}complex_viewer?complex=${naturalProduct}&protein=${pdbId}&model=${model}&hide_protein=${toggleProtein}`}
+            srcDoc={imageNotFound}
             title="Ligand Viewer"
           ></iframe>
           
@@ -127,7 +129,7 @@ const Results = (props) => {
             </button>
             <button style={{backgroundColor: "#4682B4", color: 'white'}}><a style={{color: 'white'}} href={`${env.BACKEND}download?filePath=/public/data/Complex/${pdbId}/${pdbId}_${naturalProduct}.pdb`}>Download Search Complex</a></button>
               
-            <TableRender interactiveTableData={interactiveTableData} />
+            <TableRender />
           </div>
         </div>
       </div>

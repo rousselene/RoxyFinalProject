@@ -12,6 +12,7 @@ export const ContextProvider = ({ children }) => {
   const [pdbId, setPdbId] = useState(localStorage.getItem('pdbId'));
   const [sequenceLength, setSequenceLength] = useState(localStorage.getItem('sequenceLength'));
   const [gene, setGene] = useState(localStorage.getItem('gene'));
+  const [imageNotFound, setImageNotFound] = useState(undefined)
   return (
     <Context.Provider
       value={{
@@ -35,6 +36,8 @@ export const ContextProvider = ({ children }) => {
         setSequenceLength,
         gene,
         setGene,
+        imageNotFound,
+        setImageNotFound
       }}
     >
       {children}

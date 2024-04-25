@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import pdbProteinInfo from './PDB_proteins_info.csv?raw';
-import proteinModels from './Model_protein_info.csv?raw';
-import axios from 'axios';
-import { env } from "./env.js";
 const Help = (props) => {
 
   return (
@@ -28,16 +24,14 @@ Top-hits Functionality
       On the left side there is a visualization of the complex for the search that was submitted of the protein and ligand that binds to it. 
       On the right are the top 10 hits of the best binding affinity of that ligand to its receptor protein. 
       Both, image and the table can be downloaded.</p>
-    <div className='protein-selected'></div>
-    <div className='grid row'>
-      <div className="grid col ligand-complex-result"></div>
-      <div className="grid col table-result"></div>
-    </div>
+    <div className='results'></div>
+
+
     <h2 className='pt-4'>The Count Wizard</h2>
     <p>User can use the count wizard to see all 10 conformations of the docked complex by clicking up or down on the widget next to the box  They can also choose to visualize the ligand only by clicking on the visualize ligand box.</p>
     <div className='count-wizard'></div>
     <h2 className='pt-4'>Table of Results</h2>
-    <p>A table results of the searched protein and ligand is returned. The table contains the searched protein-ligand complex on the first row, followed by the top hit compounds of that protein. Users can choose to download the result table in csv format. They can also choose to download only the protein-ligand complex returned by clicking on ‘download searched complex’ button on the top right if they have no interest on the table. The 3D visualization of the returned complex is located on the left. Users can return up to 100 top hits compounds.</p>
+    <p>A table results of the searched protein and ligand is returned. The table contains the searched protein-ligand complex on the first row, followed by the top hit compounds of that protein. Users can choose to download the result table in csv format. They can also choose to download only the protein-ligand complex returned by clicking on ‘Download Search Complex’ button on the top right if they have no interest on the table. The 3D visualization of the returned complex is located on the left. Users can return up to 100 top hits compounds.</p>
     <div className='results-table'></div>
     </div>
 

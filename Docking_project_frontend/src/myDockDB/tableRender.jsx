@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import { Tab } from "bootstrap";
 import NewWindow from "react-new-window";
 import { env } from "./env.js";
+import {useCallback} from "react";
 const BuildVis = (props) => {
   return (
     <div
@@ -16,16 +17,34 @@ const BuildVis = (props) => {
     ></div>
   );
 };
-const TableRender = (props) => {
+const TableRender = () => {
   const { naturalProduct, setNaturalProduct } = useContext(Context);
   const { pdbId, setPdbId } = useContext(Context);
-
+  const { interactiveTableData, setInteractiveTableData } = useContext(Context);
+  const [checkedList, setCheckedList] = useState(interactiveTableData.map((item, idx) => idx==0?true:false))
+  const {imageNotFound, setImageNotFound} = useContext(Context)
+  console.log(interactiveTableData)
   function visualizeComplex(e) {
     console.log("display", e.target.value, pdbId, naturalProduct);
     setPdbId(e.target.value.split("_")[0]);
     setNaturalProduct(e.target.value.split("_")[1]);
+    if (e.target.id == 'Not Found in DB') {
+      setImageNotFound('<h1 style="text-align: center;">Image Not Found</h1>')
+    }
+    else {
+      setImageNotFound(undefined)
+    }
+    
   }
-
+  function checkBoxUpdate(e) {
+    let newCheckedList = checkedList.map((e) => false)
+    
+    newCheckedList[parseInt(e.target.dataset.index)] = true
+    console.log(newCheckedList, 'newCheckedList')
+    setCheckedList(newCheckedList)
+    console.log('checkedList', checkedList)
+  }
+  
   return (
     <div>
       <Table className="resultsTable" striped bordered hover>
@@ -38,7 +57,7 @@ const TableRender = (props) => {
             <th>Download</th>
             <th>Visualization</th>
           </tr>
-          {props.interactiveTableData.map((dataPoint, index) => (
+          {interactiveTableData.map((dataPoint, index) => {console.log('mapped'); return(
             <tr key={index}>
               <td>{dataPoint.Protein}</td>
               <td>{dataPoint.Ligand}</td>
@@ -61,17 +80,19 @@ const TableRender = (props) => {
               </td>
               <td>
                 <input
+                  data-index={index}
+                  checked={checkedList[index]}
                   type="radio"
                   id={dataPoint.Complex}
                   name="visualize"
                   value={dataPoint.Complex}
-                  onChange={(e) => {
-                    visualizeComplex(e);
-                  }}
+                  onChange={(e) => {checkBoxUpdate(e); visualizeComplex(e)}}
+                  htmlFor='visual-radio-button-group'
                 ></input>
               </td>
             </tr>
-          ))}
+          )})}
+          
         </tbody>
       </Table>
       {/*<div>
@@ -79,5 +100,6 @@ const TableRender = (props) => {
                 </div>*/}
     </div>
   );
+  
 };
 export default TableRender;

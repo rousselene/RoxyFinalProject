@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import pdbProteinInfo from './PDB_proteins_info.csv?raw';
-import proteinModels from './Model_protein_info.csv?raw';
 import axios from 'axios';
-import { env } from "./env.js";
+import { env } from "../env.js";
+import { Link } from 'react-router-dom';
 const Datasets = (props) => {
   const [pdbTable, setPdbTable] = useState([]);
   const [pmTable, setPmTable] = useState([]);
@@ -64,7 +63,7 @@ const Datasets = (props) => {
 
       </table>
       <h2 className='pt-2'>Ligands</h2>
-      <p>Further, to select the ligands, we initially screened various natural compounds present in plants from the <a href='https://pubchem.ncbi.nlm.nih.gov/#query=natural%20products'>PubChem</a> (Kim et al., 2021) and <a href='https://zinc.docking.org/substances/subsets/natural-products/'>ZINC</a> databases (Sterling & Irwin, 2015). While selecting the ligands, the LIPINSKY’S RULE OF 5 is applied to obtain only for compounds with drug-like capabilities. Two different filters were applied: (i) REOS (Rapid Elimination of Swills): A hybrid method that combines some simple counting schemes like rule-of-5 with a set of functional group filters to identify reactive, toxic and other problematic structures. The REOS filters flag compounds containing functional groups that may lead to false positives due to reactivity, assay interference or poor ADMET properties (T et al., 2013). (ii) PAINS (Pan-assay interference compounds): To identify frequent hitters (promiscuous compounds) in many HTS assays. Pan-assay interference compounds (PAINS) are chemical compounds that often give false positive results in high-throughput screens. PAINS tend to react nonspecifically with numerous biological targets rather than specifically affecting one desired target (Baell & Holloway, 2010). The list of ligands screened in the study can be found at these two links: <a href='/myDockDB/listPubchem'>Pubchem</a> and <a href="/myDockDB/listZincs">Zinc</a>.</p>
+      <p>Further, to select the ligands, we initially screened various natural compounds present in plants from the <a href='https://pubchem.ncbi.nlm.nih.gov/#query=natural%20products'>PubChem</a> (Kim et al., 2021) and <a href='https://zinc.docking.org/substances/subsets/natural-products/'>ZINC</a> databases (Sterling & Irwin, 2015). While selecting the ligands, the LIPINSKY’S RULE OF 5 is applied to obtain only for compounds with drug-like capabilities. Two different filters were applied: (i) REOS (Rapid Elimination of Swills): A hybrid method that combines some simple counting schemes like rule-of-5 with a set of functional group filters to identify reactive, toxic and other problematic structures. The REOS filters flag compounds containing functional groups that may lead to false positives due to reactivity, assay interference or poor ADMET properties (T et al., 2013). (ii) PAINS (Pan-assay interference compounds): To identify frequent hitters (promiscuous compounds) in many HTS assays. Pan-assay interference compounds (PAINS) are chemical compounds that often give false positive results in high-throughput screens. PAINS tend to react nonspecifically with numerous biological targets rather than specifically affecting one desired target (Baell & Holloway, 2010). The list of ligands screened in the study can be found at these two links: <Link to="/myDockDB/listPubchem">Pubchem</Link> and <Link to="/myDockDB/listZincs">ZINC</Link>.</p>
       
       <div className='dataset-img'></div>
       <p style={{color: '#4682B4'}}>**duplicates 3,715 compounds between the two databases were removed.</p>

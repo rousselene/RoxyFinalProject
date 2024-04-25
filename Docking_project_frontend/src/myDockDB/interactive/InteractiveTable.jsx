@@ -2,12 +2,11 @@ import React from "react";
 import { useEffect, useRef, useState, useContext } from "react";
 import axios from "axios";
 import Popup from 'reactjs-popup';
-import TableRender from "./tableRender.jsx";
 import { createPortal } from "react-dom";
 import { Tab } from "bootstrap";
-import { Context } from "./Context";
+import { Context } from "../Context.jsx";
 import { useNavigate } from "react-router-dom";
-import { env } from "./env.js";
+import { env } from "../env.js";
 import { FaInfoCircle } from "react-icons/fa"
 
 import { Tooltip } from 'react-tooltip'
@@ -90,8 +89,9 @@ const Interactive = (props) => {
             }
 
             else {
-              setInteractiveTableData(res.data);
-              localStorage.setItem('resultsTable', JSON.stringify(res.data))
+              var itd = res.data.map((item, index) => {index==0?item.checked = true:item.checked=false; return item})
+              setInteractiveTableData(itd);
+              localStorage.setItem('resultsTable', JSON.stringify(itd))
               navigate("/myDockDB/Results");
             }
           });
@@ -131,8 +131,9 @@ const Interactive = (props) => {
               alert('Please enter a zinc or Pubchem compound please!')
             }
             else {
-              setInteractiveTableData(res.data);
-              localStorage.setItem('resultsTable', JSON.stringify(res.data))
+              var itd = res.data.map((item, index) => {index==0?item.checked = true:item.checked=false; return item})
+              setInteractiveTableData(itd);
+              localStorage.setItem('resultsTable', JSON.stringify(itd))
               navigate("/myDockDB/Results");
             }
 
@@ -217,13 +218,14 @@ const Interactive = (props) => {
                     <span style={{ display: "inline-block" }}>
                       <label htmlFor="min" style={{ display: "block" }}>
                         Gene Name&nbsp;
-                          
+                          <sup>
                           <FaInfoCircle data-tooltip-id="pop-up-tooltip"
-                          data-tooltip-content="Download Gene Names"
+                          data-tooltip-content="Review Gene Names"
                           data-tooltip-place="top-start"
                           data-tooltip-position-strategy="fixed"
                           onClick={(e) => navigate('/myDockDB/listGenes')}/>
                         <Tooltip id="pop-up-tooltip" />
+                        </sup>
 
                       
                         
@@ -271,13 +273,14 @@ const Interactive = (props) => {
                   <div>
                     <span style={{ display: "inline-block" }}>
                       <label htmlFor="pdbId" style={{ display: "block" }}>
-                        PDB ID&nbsp;
+                        PDB ID&nbsp;<sup>
                         <FaInfoCircle data-tooltip-id="pop-up-tooltip-1"
-                          data-tooltip-content="Download PDB IDs"
+                          data-tooltip-content="Review PDB IDs"
                           data-tooltip-place="top-start"
                           data-tooltip-position-strategy="fixed"
                           onClick={(e) => navigate('/myDockDB/listpdbs')}/>
                         <Tooltip id="pop-up-tooltip-1" />
+                        </sup>
                       </label>
                       <Select
                         className="basic-single"
@@ -327,13 +330,14 @@ const Interactive = (props) => {
                   name="database"
                   className="mx-2"
                 />
-                Pubchem&nbsp;
+                Pubchem&nbsp;<sup>
                         <FaInfoCircle data-tooltip-id="pop-up-tooltip-2"
-                          data-tooltip-content="Download PDB IDs"
+                          data-tooltip-content="Download Pubchem IDs"
                           data-tooltip-place="top-start"
                           data-tooltip-position-strategy="fixed"
                           onClick={(e) => navigate('/myDockDB/listPubchem')}/>
                         <Tooltip id="pop-up-tooltip-2" />
+                        </sup>
               </label>
               <label className="radio-inline mx-2">
                 <input
@@ -346,13 +350,13 @@ const Interactive = (props) => {
                   name="database"
                   className="mx-2"
                 />
-                ZINC&nbsp;
+                ZINC&nbsp;<sup>
                         <FaInfoCircle data-tooltip-id="pop-up-tooltip-3"
-                          data-tooltip-content="Download Zinc Ids"
+                          data-tooltip-content="Download ZINC IDs"
                           data-tooltip-place="top-start"
                           data-tooltip-position-strategy="fixed"
                           onClick={(e) => navigate('/myDockDB/listZincs')}/>
-                        <Tooltip id="pop-up-tooltip-3" />
+                        <Tooltip id="pop-up-tooltip-3" /></sup>
               </label>
             </form>
             <br></br>
@@ -463,11 +467,12 @@ const Interactive = (props) => {
                 e.preventDefault() &
                 //zincHandler(e) &
                 localStorage.clear() &
-                console.log(tableData)
+                console.log(tableData) &
+                navigate('/myDockDB/Results')
               }
             >
               Clear Previous Search
-            </button></div> */}
+            </button></div>*/}
           </div>
         </div>
       </div>
